@@ -8,6 +8,8 @@ const ksecondprimarycolor = Color(0xFFf72f56);
 const ktextColor = Color(0xFFffffff);
 const kTextstyle = TextStyle(fontSize: 18, color: ktextColor);
 const kNumberstyle =
-    TextStyle(fontSize: 50, fontWeight: FontWeight.bold, color: ktextColor);
+TextStyle(fontSize: 50, fontWeight: FontWeight.bold, color: ktextColor);
 const KbuttonStyle =
-    TextStyle(fontSize: 45, fontWeight: FontWeight.bold, color: ktextColor);
+TextStyle(fontSize: 45, fontWeight: FontWeight.bold, color: ktextColor);
+const kResulttextStyle = TextStyle(
+    fontSize: 40, fontWeight: FontWeight.bold, color: Colors.grey);

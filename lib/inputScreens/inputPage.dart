@@ -1,9 +1,13 @@
+import 'package:bmicalculator/Common_widget/CalculationButton.dart';
 import 'package:bmicalculator/Common_widget/Iconcontent.dart';
 import 'package:bmicalculator/Common_widget/ReusableCard.dart';
 import 'package:bmicalculator/Common_widget/round_icon_button.dart';
+import 'package:bmicalculator/Modals/Calculator.dart';
 import 'package:bmicalculator/constants/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+import 'Result_Page.dart';
 
 class InputPage extends StatefulWidget {
   @override
@@ -14,6 +18,7 @@ enum Gender { male, female }
 
 class _InputPageState extends State<InputPage> {
   Gender selectedgender;
+
   int height = 120;
   int weight = 89;
   int age = 20;
@@ -111,11 +116,11 @@ class _InputPageState extends State<InputPage> {
             // ),
             Expanded(
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    reusableCard(
-                      color: kDisableColor,
-                      cardChild: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                reusableCard(
+                  color: kDisableColor,
+                  cardChild: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
@@ -151,9 +156,9 @@ class _InputPageState extends State<InputPage> {
                     ],
                   ), //WEIGHT COlUM
                 ),
-                  reusableCard(
-                    color: kDisableColor,
-                    cardChild: Column(
+                reusableCard(
+                  color: kDisableColor,
+                  cardChild: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
@@ -187,19 +192,23 @@ class _InputPageState extends State<InputPage> {
                         ],
                       )
                     ],
-                  ),//AGE Column
+                  ), //AGE Column
                 ),
               ],
             )),
-            Center(
-              child: Container(
-                child: Text("CALCULATE",style: KbuttonStyle),
-                color: kActiveCardColor,
-                margin: EdgeInsets.all(8),
-                width: double.infinity,
-                height: 80,
-
-              ),
+            CalculationButton(
+              OnPressed: () {
+                Calculator cal = Calculator(weight: weight, height: height);
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => ResultPage(
+                            BMIresultStatus: cal.getStatus(),
+                            BMIresult: cal.BmiResult(),
+                            interpretation: cal.getInterpretation()
+                    )));
+              },
+              title: "Calculate",
             )
           ],
         ));
