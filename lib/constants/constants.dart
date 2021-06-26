@@ -9,3 +9,5 @@ const ktextColor = Color(0xFFffffff);
 const kTextstyle = TextStyle(fontSize: 18, color: ktextColor);
 const kNumberstyle =
     TextStyle(fontSize: 50, fontWeight: FontWeight.bold, color: ktextColor);
+const KbuttonStyle =
+    TextStyle(fontSize: 45, fontWeight: FontWeight.bold, color: ktextColor);
