@@ -32,7 +32,6 @@ class _InputPageState extends State<InputPage> {
                       setState(() {
                         selectedgender = Gender.male;
                       });
-                      print('male is clicked');
                     },
                     color: selectedgender == Gender.male
                         ? kActiveCardColor
@@ -61,53 +60,69 @@ class _InputPageState extends State<InputPage> {
               ),
             ),
             Expanded(
-              child: reusableCard(
-                onPressed: () {
-                  print(' middle row is clicked');
-                },
-                color: kDisableColor,
-                cardChild: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'HEIGHT',
-                      style: kTextstyle,
-                    ),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.baseline,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      textBaseline: TextBaseline.alphabetic,
-                      children: [
-                        Text(
-                          '180',
-                          style: kNumberstyle,
-                        ),
-                        Text(
-                          'cm',
-                          style: kTextstyle,
-                        ),
-                      ],
-                    ),
-                    Slider(
-                        value: height.toDouble(),
-                        onChanged: (double Newvalue) {
-                          height
-                        })
-                  ],
+              // child: reusableCard(
+              child: Container(
+                margin: EdgeInsets.all(15),
+                decoration: BoxDecoration(
+                  color: kDisableColor,
+                  borderRadius: BorderRadius.circular(8),
                 ),
+                child: Column(
+                  // cardChild: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "height",
+                        style: kTextstyle,
+                      ),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.baseline,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        textBaseline: TextBaseline.alphabetic,
+                        children: [
+                          Text(
+                            height.toString(),
+                            style: kNumberstyle,
+                          ),
+                          Text(
+                            'cm',
+                            style: kTextstyle,
+                          ),
+                        ],
+                      ),
+                      Slider(
+                          value: height.toDouble(),
+                          min: 120,
+                          max: 220,
+                          activeColor: kActiveCardColor,
+                          inactiveColor: ktextColor,
+                          onChanged: (double newValue) {
+                            setState(() {
+                              height =newValue.round();
+
+                            });
+                          })
+                    ],
+                  ),
               ),
-            ),
+              ),
+            // ),
             Expanded(
                 child: Row(
               children: [
                 reusableCard(
-                  onPressed: () {
-                    print('last row left side is clicked');
-                  },
                   color: kDisableColor,
-                  cardChild: Iconcontent(
-                    icon: FontAwesomeIcons.mars,
-                    label: "MALE",
+                  cardChild: Column(
+                    children: [
+                      Text(
+                        "weight",
+                        style: kTextstyle,
+                      ),
+                      Text(
+                        '89',
+                        style: kNumberstyle,
+                      )
+                    ],
                   ),
                 ),
                 reusableCard(
