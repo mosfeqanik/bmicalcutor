@@ -2,4 +2,4 @@
 
 A new Flutter project.
 
-<img width="300" src="https://github.com/mosfeqanik/bmicalcutor/blob/main/assets/BmiCalculator.gif" height="666.5" alt="Material Bread logo">
+<img width="350" src="https://github.com/mosfeqanik/bmicalcutor/blob/main/assets/BmiCalculator.gif" height="777.58333333333" alt="Bmi calculator Screenplay">
