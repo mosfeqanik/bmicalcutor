@@ -1,9 +1,9 @@
-import 'package:bmicalculator/Common_widget/CalculationButton.dart';
-import 'package:bmicalculator/Common_widget/Iconcontent.dart';
-import 'package:bmicalculator/Common_widget/ReusableCard.dart';
-import 'package:bmicalculator/Common_widget/round_icon_button.dart';
+import 'package:bmicalculator/views/Common_widget/CalculationButton.dart';
+import 'package:bmicalculator/views/Common_widget/Iconcontent.dart';
+import 'package:bmicalculator/views/Common_widget/ReusableCard.dart';
+import 'package:bmicalculator/views/Common_widget/round_icon_button.dart';
 import 'package:bmicalculator/Modals/Calculator.dart';
-import 'package:bmicalculator/constants/constants.dart';
+import 'package:bmicalculator/views/constants/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -198,13 +198,13 @@ class _InputPageState extends State<InputPage> {
             )),
             CalculationButton(
               OnPressed: () {
-                Calculator cal = Calculator(weight: weight, height: height);
+                Calculator cal = Calculator( height,weight);
                 Navigator.push(
                     context,
                     MaterialPageRoute(
                         builder: (context) => ResultPage(
+                            BMIresult: cal.getBmiResult(),
                             BMIresultStatus: cal.getStatus(),
-                            BMIresult: cal.BmiResult(),
                             interpretation: cal.getInterpretation()
                     )));
               },

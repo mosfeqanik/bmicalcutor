@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'constants/constants.dart';
-import 'inputScreens/inputPage.dart';
+import 'views/constants/constants.dart';
+import 'views/inputScreens/inputPage.dart';
 
 void main() => runApp(Bmicalculator());
 
